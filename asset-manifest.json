@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Ielts-Exam-quiz/static/css/main.a4e0cbf2.css",
-    "main.js": "/Ielts-Exam-quiz/static/js/main.d6c25807.js",
+    "main.js": "/Ielts-Exam-quiz/static/js/main.e445f049.js",
     "static/css/808.acc33f2d.chunk.css": "/Ielts-Exam-quiz/static/css/808.acc33f2d.chunk.css",
     "static/js/808.6103bbcf.chunk.js": "/Ielts-Exam-quiz/static/js/808.6103bbcf.chunk.js",
-    "static/js/960.0b94f7fc.chunk.js": "/Ielts-Exam-quiz/static/js/960.0b94f7fc.chunk.js",
+    "static/js/741.6176369e.chunk.js": "/Ielts-Exam-quiz/static/js/741.6176369e.chunk.js",
     "static/js/376.57f05caf.chunk.js": "/Ielts-Exam-quiz/static/js/376.57f05caf.chunk.js",
     "static/js/542.1455107c.chunk.js": "/Ielts-Exam-quiz/static/js/542.1455107c.chunk.js",
-    "static/js/989.9cdf29ef.chunk.js": "/Ielts-Exam-quiz/static/js/989.9cdf29ef.chunk.js",
+    "static/js/989.1a261b0f.chunk.js": "/Ielts-Exam-quiz/static/js/989.1a261b0f.chunk.js",
     "static/js/828.2f000b0c.chunk.js": "/Ielts-Exam-quiz/static/js/828.2f000b0c.chunk.js",
     "static/css/931.ce670987.chunk.css": "/Ielts-Exam-quiz/static/css/931.ce670987.chunk.css",
     "static/js/931.d86e7382.chunk.js": "/Ielts-Exam-quiz/static/js/931.d86e7382.chunk.js",
@@ -22,13 +22,13 @@
     "static/media/audioPlayerColor.jpg": "/Ielts-Exam-quiz/static/media/audioPlayerColor.021682c68097d9c18db0.jpg",
     "index.html": "/Ielts-Exam-quiz/index.html",
     "main.a4e0cbf2.css.map": "/Ielts-Exam-quiz/static/css/main.a4e0cbf2.css.map",
-    "main.d6c25807.js.map": "/Ielts-Exam-quiz/static/js/main.d6c25807.js.map",
+    "main.e445f049.js.map": "/Ielts-Exam-quiz/static/js/main.e445f049.js.map",
     "808.acc33f2d.chunk.css.map": "/Ielts-Exam-quiz/static/css/808.acc33f2d.chunk.css.map",
     "808.6103bbcf.chunk.js.map": "/Ielts-Exam-quiz/static/js/808.6103bbcf.chunk.js.map",
-    "960.0b94f7fc.chunk.js.map": "/Ielts-Exam-quiz/static/js/960.0b94f7fc.chunk.js.map",
+    "741.6176369e.chunk.js.map": "/Ielts-Exam-quiz/static/js/741.6176369e.chunk.js.map",
     "376.57f05caf.chunk.js.map": "/Ielts-Exam-quiz/static/js/376.57f05caf.chunk.js.map",
     "542.1455107c.chunk.js.map": "/Ielts-Exam-quiz/static/js/542.1455107c.chunk.js.map",
-    "989.9cdf29ef.chunk.js.map": "/Ielts-Exam-quiz/static/js/989.9cdf29ef.chunk.js.map",
+    "989.1a261b0f.chunk.js.map": "/Ielts-Exam-quiz/static/js/989.1a261b0f.chunk.js.map",
     "828.2f000b0c.chunk.js.map": "/Ielts-Exam-quiz/static/js/828.2f000b0c.chunk.js.map",
     "931.ce670987.chunk.css.map": "/Ielts-Exam-quiz/static/css/931.ce670987.chunk.css.map",
     "931.d86e7382.chunk.js.map": "/Ielts-Exam-quiz/static/js/931.d86e7382.chunk.js.map",
@@ -42,6 +42,6 @@
   },
   "entrypoints": [
     "static/css/main.a4e0cbf2.css",
-    "static/js/main.d6c25807.js"
+    "static/js/main.e445f049.js"
   ]
 }
