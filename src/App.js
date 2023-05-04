@@ -1,24 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import "./pages/page.css";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import Preloader from './components/preloader/Preloader';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const Navbar = lazy(() => import('./components/navbar/navbar'))
+const Home = lazy(() => import('./pages/Home/Home'));
+const Login = lazy(() => import('./pages/Auth/Login'));
+const Signup = lazy(() => import('./pages/Auth/Signup'));
+const QuestionList = lazy(() => import('./components/questionanswer/QuestionList'));
+const Profile = lazy(() => import('./pages/Profile/Profile'));
+const Dashboard = lazy(() => import('./pages/Quiz/Deshboard'));
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Suspense fallback={<Preloader />}>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/home/:list' element={<QuestionList />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/profile' element={<Profile />} />
+          {/* Test */}
+          <Route path='/home/:list/quiz' element={<Dashboard />} />
+          <Route path='*' element={<Home />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
 }
 

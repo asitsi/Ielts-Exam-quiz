@@ -1,0 +1,45 @@
+import React from 'react'
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+
+const Home = () => {
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    '& > :not(style)': {
+                        m: 1,
+                        width: '20rem',
+                        height: 'auto',
+                        padding: '1rem 0',
+                        textAlign: 'center'
+                    },
+                }}
+            >
+                <Paper elevation={3} >Question / Answers</Paper>
+                <Paper elevation={3} >Essay</Paper>
+                <Paper elevation={3} >Audio Question / Answers</Paper>
+                <Paper elevation={3} >Speaking</Paper>
+            </Box>
+
+            <Box sx={{
+                display: 'flex', flexWrap: 'wrap',
+                '& > :not(style)': {
+                    m: 1,
+                    width: '48%',
+                },
+            }}>
+                <Box>
+                    <Paper elevation={3} sx={{ height: '85vh' }}>Question</Paper>
+                </Box>
+                <Box>
+                    <Paper elevation={3} sx={{ height: '85vh' }}>Answer</Paper>
+                </Box>
+            </Box>
+        </>
+    )
+}
+
+export default Home
