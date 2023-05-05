@@ -20,6 +20,8 @@ const AudioPlayer = (props) => {
     const progressBar = useRef();   // reference our progress bar
     const animationRef = useRef();  // reference the animation
 
+    console.log(props.audioLink)
+
     useEffect(() => {
         const seconds = Math.floor(audioPlayer.current.duration);
         setDuration(seconds);

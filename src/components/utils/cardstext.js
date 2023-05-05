@@ -77,8 +77,8 @@ export const questionList = [
             {
                 id: 1,
                 title: "You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work. Write a letter to the accommodation officer at the college. In the letter, ",
-                question: "test You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work. Write a letter to the accommodation officer at the college. In the letter, ",
-                options: ["describe the situation", "explain your problems and why it is difficult to work", "say what kind of accommodation you would prefer"]
+                question: " scripts are assessed on the following criteria",
+                options: ["Task Achievement", "Coherence and Cohesion", "Lexical Resource", "Grammatical Range and Accuracy"]
             },
             {
                 id: 2,
@@ -148,7 +148,7 @@ export const questionList = [
             {
                 id: 2,
                 title: "audio 2",
-                audioLink: "https://cdn.simplecast.com/audio/cae8b0eb-d9a9-480d-a652-0defcbe047f4/episodes/af52a99b-88c0-4638-b120-d46e142d06d3/audio/500344fb-2e2b-48af-be86-af6ac341a6da/default_tc.mp3",
+                audioLink: "https://www.ielts.org/-/media/us-files/ielts-practice-listening-test_section-1-audio.ashx",
                 options: ["describe the situation", "explain your problems and why it is difficult to work", "say what kind of accommodation you would prefer"]
             },
             {
