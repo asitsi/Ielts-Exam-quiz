@@ -9,7 +9,7 @@ import UpdateIcon from '@mui/icons-material/Update';
 import audio from '../../assets/audio/audio.mp3';
 import audioPlayerImage from '../../assets/images/audioPlayerColor.jpg';
 
-const AudioPlayer = () => {
+const AudioPlayer = (props) => {
     // state
     const [isPlaying, setIsPlaying] = useState(false);
     const [duration, setDuration] = useState(0);
@@ -96,7 +96,7 @@ const AudioPlayer = () => {
             </div>
             <div className={styles.audioPlayerFlex}>
 
-                <audio ref={audioPlayer} src="https://cdn.simplecast.com/audio/cae8b0eb-d9a9-480d-a652-0defcbe047f4/episodes/af52a99b-88c0-4638-b120-d46e142d06d3/audio/500344fb-2e2b-48af-be86-af6ac341a6da/default_tc.mp3" preload="metadata"></audio>
+                <audio ref={audioPlayer} src={`${props.audioLink}`} preload="metadata"></audio>
                 <button className={styles.forwardBackward} onClick={backThirty}><HistoryIcon /> 30</button>
                 <button onClick={togglePlayPause} className={styles.playPause}>
                     {isPlaying ? <FaPause /> : <FaPlay className={styles.play} />}

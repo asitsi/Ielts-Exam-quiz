@@ -44,18 +44,20 @@ const QuestionList = () => {
 
   let { list } = useParams();
   let listid = { list }
-  if (list === 'Essay') {
+  if (list === 'question-answers') {
     listid = 1
-  } else if (list === 'Speaking') {
+  } else if (list === 'Essay') {
     listid = 2
   } else if (list === 'audio-question-answers') {
+    listid = 3
+  } else if (list === 'Speaking') {
     listid = 4
   }
+
   const arr = questionList.filter((item) => item.id === listid);
   // setData(arr[0])
 
   let isLoading = false
-
 
   return (
     <React.Fragment>
@@ -83,7 +85,7 @@ const QuestionList = () => {
                       </Avatar>
                     </ListItemAvatar>
                     <ListItemText
-                      primary={item.question.split(" ").slice(0, 15).join(" ") + '...'}
+                      primary={item?.title.split(" ").slice(0, 15).join(" ") + '...'}
                       secondary={secondary ? 'Secondary text' : null}
                     />
                   </ListItem>
@@ -118,7 +120,7 @@ const QuestionList = () => {
           </div>
           <Paper elevation={3} style={{ padding: '1rem 1.5rem' }}>
             <FormControlLabel required control={<Checkbox onClick={() => setCheck(!check)} />} label="Accept terms & conditions" />
-            <Link to={'/home/:list/quiz'}>
+            <Link to={`/home/${list}/quiz`}>
               <ColorButton
                 type="submit"
                 fullWidth

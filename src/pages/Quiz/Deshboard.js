@@ -6,22 +6,25 @@ import { questionList } from '../../components/utils/cardstext';
 import Button from '@mui/material/Button';
 import styles from "../../styles/quiz.module.css";
 import { styled } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from 'react';
 
 
 const Dashboard = () => {
     // state
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [currentList, setCurrentList] = useState(0)
     const [score, setScrore] = useState();
     const [selected, setSelected] = useState([]);
     const [IsSelectedIndex, setIsSelectedIndex] = useState();
     const [onSelectedStyle, setOnSelectedStyle] = useState();
 
 
-    const optionArr = questionList[0]?.list[currentQuestion];
-    // console.log(optionArr)
+    const optionArr = questionList[currentList]?.list[currentQuestion];
 
     let navigate = useNavigate();
+
+    let { list } = useParams();
 
     const nextQuestion = () => {
         if (currentQuestion < questionList[0]?.list.length - 1) {
@@ -46,6 +49,18 @@ const Dashboard = () => {
     }
 
     // console.log("selected", selected);
+
+    useEffect(() => {
+        if (list === 'question-answers') {
+            setCurrentList(0)
+        } else if (list === 'Essay') {
+            setCurrentList(1)
+        } else if (list === 'audio-question-answers') {
+            setCurrentList(3)
+        } else if (list === 'Speaking') {
+            setCurrentList(4)
+        }
+    }, [])
 
 
 
@@ -89,28 +104,99 @@ const Dashboard = () => {
                     width: '48%',
                 },
             }}>
-                <Box>
-                    <Paper elevation={3} sx={{ height: '70vh', padding: '1rem' }}> { /* display: 'flex', justifyContent: 'center', alignItems: 'flex-end' */}
-                        {/* <AudioPlayer /> */}
-                        <h3>Questions {optionArr.id} – {questionList[0]?.list.length} </h3>
-
-                        <p style={{ fontSize: '20px' }}><span style={{ fontWeight: '700!important' }}>{optionArr.id}. </span> {optionArr.question}</p>
-                    </Paper>
-                </Box>
-                <Box>
-                    <Paper elevation={3} sx={{ height: '70vh', display: 'grid', gap: '8px', padding: '1rem' }}>
-                        <h3>Choose the correct one - </h3>
-                        {optionArr?.options?.map((item, index) => {
+                {(() => {
+                    switch (list) {
+                        case "question-answers":
                             return (
-                                <Button size="large" key={index}
-                                    onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: '1' }}
-                                    className={`${styles.optionsButton} ${IsSelectedIndex == index + 1 ? styles.active : null}`}>{item}</Button>
+                                <>
+                                    <Box>
+                                        <Paper elevation={3} sx={{ height: '70vh', padding: '1rem' }}> { /* display: 'flex', justifyContent: 'center', alignItems: 'flex-end' */}
+                                            {/* <AudioPlayer /> */}
+                                            <h3>Questions {optionArr.id} – {questionList[0]?.list.length} </h3>
+
+                                            <p style={{ fontSize: '20px' }}><span style={{ fontWeight: '700!important' }}>{optionArr.id}. </span> {optionArr.question}</p>
+                                        </Paper>
+                                    </Box>
+                                    <Box>
+
+                                        <Paper elevation={3} sx={{ height: '70vh', display: 'grid', gap: '8px', padding: '1rem' }}>
+                                            <h3>Choose the correct one - </h3>
+                                            {optionArr?.options?.map((item, index) => {
+                                                return (
+                                                    <Button size="large" key={index}
+                                                        onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: '1' }}
+                                                        className={`${styles.optionsButton} ${IsSelectedIndex == index + 1 ? styles.active : null}`}>{item}</Button>
+                                                )
+                                            })}
+                                            <br />
+                                            <ColorButton onClick={nextQuestion}>Next</ColorButton>
+                                        </Paper>
+                                    </Box>
+                                </>
                             )
-                        })}
-                        <br />
-                        <ColorButton onClick={nextQuestion}>Next</ColorButton>
-                    </Paper>
-                </Box>
+                        case "Speaking":
+                            return (
+                                <>
+                                    <Box>
+                                        <Paper elevation={3} sx={{ height: '70vh', padding: '1rem' }}> { /* display: 'flex', justifyContent: 'center', alignItems: 'flex-end' */}
+                                            {/* <AudioPlayer /> */}
+                                            <h3>Questions {optionArr.id} – {questionList[0]?.list.length} </h3>
+
+                                            <p style={{ fontSize: '20px' }}><span style={{ fontWeight: '700!important' }}>{optionArr.id}. </span> {optionArr.question}</p>
+                                        </Paper>
+                                    </Box>
+                                    <Box>
+
+                                        <Paper elevation={3} sx={{ height: '70vh', display: 'grid', gap: '8px', padding: '1rem' }}>
+                                            <h3>Choose the correct one - </h3>
+                                            {optionArr?.options?.map((item, index) => {
+                                                return (
+                                                    <Button size="large" key={index}
+                                                        onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: '1' }}
+                                                        className={`${styles.optionsButton} ${IsSelectedIndex == index + 1 ? styles.active : null}`}>{item}</Button>
+                                                )
+                                            })}
+                                            <br />
+                                            <ColorButton onClick={nextQuestion}>Next</ColorButton>
+                                        </Paper>
+                                    </Box>
+                                </>
+                            )
+                        case "audio-question-answers":
+                            return (
+                                <>
+                                    <Box>
+                                        <Paper elevation={3} sx={{ height: '70vh', padding: '1rem' }}> { /* display: 'flex', justifyContent: 'center', alignItems: 'flex-end' */}
+                                            <AudioPlayer audioLink={optionArr?.audioLink}/>
+                                            {/* <h3>Questions {optionArr.id} – {questionList[0]?.list.length} </h3>
+
+                                            <p style={{ fontSize: '20px' }}><span style={{ fontWeight: '700!important' }}>{optionArr.id}. </span> {optionArr.question}</p> */}
+                                        </Paper>
+                                    </Box>
+                                    <Box>
+
+                                        <Paper elevation={3} sx={{ height: '70vh', display: 'grid', gap: '8px', padding: '1rem' }}>
+                                            <h3>Choose the correct one - </h3>
+                                            {optionArr?.options?.map((item, index) => {
+                                                return (
+                                                    <Button size="large" key={index}
+                                                        onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: '1' }}
+                                                        className={`${styles.optionsButton} ${IsSelectedIndex == index + 1 ? styles.active : null}`}>{item}</Button>
+                                                )
+                                            })}
+                                            <br />
+                                            <ColorButton onClick={nextQuestion}>Next</ColorButton>
+                                        </Paper>
+                                    </Box>
+                                </>
+                            )
+                        default:
+                            return (
+                                <><h1>'Some - Thing Went Wrong'</h1></>
+                            )
+                    }
+                })()}
+
             </Box>
         </>
     )
@@ -124,6 +210,6 @@ const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText("#501F3A"),
     backgroundColor: "#501F3A",
     "&:hover": {
-      backgroundColor: "#CB2D6F",
+        backgroundColor: "#CB2D6F",
     },
-  }));
+}));
