@@ -11,19 +11,20 @@ import { useEffect } from 'react';
 import IconButton from '@mui/joy/IconButton';
 import Textarea from '@mui/joy/Textarea';
 import Typography from '@mui/joy/Typography';
-
+import QuizTimer from '../../components/timer/QuizTimer';
 
 const Dashboard = () => {
     // state
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentList, setCurrentList] = useState(0)
-    const [score, setScrore] = useState();
+    // const [score, setScrore] = useState();
     const [selected, setSelected] = useState([]);
     const [IsSelectedIndex, setIsSelectedIndex] = useState();
-    const [onSelectedStyle, setOnSelectedStyle] = useState();
+    // const [onSelectedStyle, setOnSelectedStyle] = useState();
     const [text, setText] = React.useState('');
-  const addEmoji = (emoji) => () => setText(`${text}${emoji}`);
 
+    // Emoji for textarea
+    const addEmoji = (emoji) => () => setText(`${text}${emoji}`);
 
     const optionArr = questionList[currentList]?.list[currentQuestion];
 
@@ -44,16 +45,13 @@ const Dashboard = () => {
     }
 
     const handleSelect = (value, index) => {
-        console.log("value", value);
         setIsSelectedIndex(index)
         // for Unique 
         if (!selected.includes(value)) {
             setSelected([...selected, value]);
         }
-        setOnSelectedStyle('active')
+        // setOnSelectedStyle('active')
     }
-
-    // console.log("selected", selected);
 
     useEffect(() => {
         if (list === 'question-answers') {
@@ -65,42 +63,13 @@ const Dashboard = () => {
         } else if (list === 'Speaking') {
             setCurrentList(4)
         }
-    }, [])
+    }, [list])
 
 
 
     return (
         <>
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                    flexWrap: 'wrap',
-                    '& > :not(style)': {
-                        m: 2,
-                    },
-                }}
-            >
-                <Paper elevation={3} sx={{ padding: '8px 1rem', marginRight: '2rem' }}><h3>Timer: 00:00</h3></Paper>
-            </Box>
-            {/* <Box
-                sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    '& > :not(style)': {
-                        m: 1,
-                        width: '20rem',
-                        height: 'auto',
-                        padding: '1rem 0',
-                        textAlign: 'center'
-                    },
-                }}
-            >
-                <Paper elevation={3} >Question / Answers</Paper>
-                <Paper elevation={3} >Essay</Paper>
-                <Paper elevation={3} >Audio Question / Answers</Paper>
-                <Paper elevation={3} >Speaking</Paper>
-            </Box> */}
+            <QuizTimer quizTimer={questionList[currentList]?.time} />
 
             <Box sx={{
                 display: 'flex', flexWrap: 'wrap',
@@ -129,8 +98,8 @@ const Dashboard = () => {
                                             {optionArr?.options?.map((item, index) => {
                                                 return (
                                                     <Button size="large" key={index}
-                                                        onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: '1' }}
-                                                        className={`${styles.optionsButton} ${IsSelectedIndex == index + 1 ? styles.active : null}`}>{item}</Button>
+                                                        onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: 1 }}
+                                                        className={`${styles.optionsButton} ${IsSelectedIndex === index + 1 ? styles.active : null}`}>{item}</Button>
                                                 )
                                             })}
                                             <br />
@@ -150,12 +119,12 @@ const Dashboard = () => {
                                             <p style={{ fontSize: '20px' }}><span style={{ fontWeight: '700!important' }}>{optionArr.id}. </span> {optionArr.question}</p>
                                             <ul>
                                                 {optionArr?.options?.map((item, index) => {
-                                                return (
-                                                    <li size="large" key={index}
-                                                        onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: '1' }}
+                                                    return (
+                                                        <li size="large" key={index}
+                                                            onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: '1' }}
                                                         >{item}</li>
-                                                )
-                                            })}
+                                                    )
+                                                })}
                                             </ul>
                                         </Paper>
                                     </Box>
@@ -196,7 +165,7 @@ const Dashboard = () => {
                                                 }
                                                 sx={{ minWidth: 300, boxShadow: 'rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;' }}
                                             />
-                                            
+
                                             <ColorButton onClick={nextQuestion}>Next</ColorButton>
                                         </Paper>
                                     </Box>
@@ -221,7 +190,7 @@ const Dashboard = () => {
                                                 return (
                                                     <Button size="large" key={index}
                                                         onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: '1' }}
-                                                        className={`${styles.optionsButton} ${IsSelectedIndex == index + 1 ? styles.active : null}`}>{item}</Button>
+                                                        className={`${styles.optionsButton} ${IsSelectedIndex === index + 1 ? styles.active : null}`}>{item}</Button>
                                                 )
                                             })}
                                             <br />
@@ -249,7 +218,7 @@ const Dashboard = () => {
                                                 return (
                                                     <Button size="large" key={index}
                                                         onClick={() => handleSelect(item, index + 1)} sx={{ zIndex: '1' }}
-                                                        className={`${styles.optionsButton} ${IsSelectedIndex == index + 1 ? styles.active : null}`}>{item}</Button>
+                                                        className={`${styles.optionsButton} ${IsSelectedIndex === index + 1 ? styles.active : null}`}>{item}</Button>
                                                 )
                                             })}
                                             <br />
@@ -271,8 +240,6 @@ const Dashboard = () => {
 }
 
 export default Dashboard;
-
-const options = ['A', 'B', 'C', 'D']
 
 const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText("#501F3A"),

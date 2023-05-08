@@ -8,6 +8,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import UpdateIcon from '@mui/icons-material/Update';
 import audio from '../../assets/audio/audio.mp3';
 import audioPlayerImage from '../../assets/images/audioPlayerColor.jpg';
+import { calculateTime } from '../utils/calculateTime';
 
 const AudioPlayer = (props) => {
     // state
@@ -33,15 +34,6 @@ const AudioPlayer = (props) => {
         if (duration === currentTime) { setIsPlaying(false) }
     }, [currentTime,duration])
 
-    
-
-    const calculateTime = (secs) => {
-        const minutes = Math.floor(secs / 60);
-        const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-        const seconds = Math.floor(secs % 60);
-        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-        return `${returnedMinutes}:${returnedSeconds}`;
-    }
 
     const togglePlayPause = () => {
         const prevValue = isPlaying;

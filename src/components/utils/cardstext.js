@@ -69,7 +69,8 @@ export const questionList = [
                 question: "You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work. Write a letter to the accommodation officer at the college. In the letter, ",
                 options: ["describe the situation", "explain your problems and why it is difficult to work", "say what kind of accommodation you would prefer"]
             },
-        ]
+        ],
+        time: 12
     },
     {
         id: 2,
@@ -134,7 +135,8 @@ export const questionList = [
                 question: "You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work. Write a letter to the accommodation officer at the college. In the letter, ",
                 options: ["describe the situation", "explain your problems and why it is difficult to work", "say what kind of accommodation you would prefer"]
             },
-        ]
+        ],
+        time: 60
     },
     {
         id: 3,
@@ -199,7 +201,8 @@ export const questionList = [
                 audioLink: "https://cdn.simplecast.com/audio/cae8b0eb-d9a9-480d-a652-0defcbe047f4/episodes/af52a99b-88c0-4638-b120-d46e142d06d3/audio/500344fb-2e2b-48af-be86-af6ac341a6da/default_tc.mp3",
                 options: ["describe the situation", "explain your problems and why it is difficult to work", "say what kind of accommodation you would prefer"]
             },
-        ]
+        ],
+        time: 240
     },
     {
         id: 4,
@@ -254,6 +257,7 @@ export const questionList = [
                 audioLink: "https://cdn.simplecast.com/audio/cae8b0eb-d9a9-480d-a652-0defcbe047f4/episodes/af52a99b-88c0-4638-b120-d46e142d06d3/audio/500344fb-2e2b-48af-be86-af6ac341a6da/default_tc.mp3",
                 options: ["describe the situation", "explain your problems and why it is difficult to work", "say what kind of accommodation you would prefer"]
             },
-        ]
+        ],
+        time: 120
     }
 ]

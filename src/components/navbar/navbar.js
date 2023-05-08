@@ -16,7 +16,7 @@ const Navbar = () => {
         <React.Fragment>
 
             <div className="navbar">
-                <h1>IELTS Exam</h1>
+                <h1><Link to="/" className='text-decoration'>IELTS Exam</Link></h1>
                 <Link className='menu-bars' >
                     {sidebar ? <CloseIcon onClick={handleMenuClick} className='menu-bars-icon' fontSize="large" />
                         : <MenuIcon onClick={handleMenuClick} className='menu-bars-icon' fontSize="large" />
@@ -25,12 +25,10 @@ const Navbar = () => {
             </div>
             <div className={sidebar ? 'navbar-background' : ''}>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-
                     <ul className='nav-menu-items'>
                         <li className='navbar-toggle'></li>
-                        <Sidebar handleMenuClick={handleMenuClick}/>
+                        <Sidebar handleMenuClick={handleMenuClick} />
                     </ul>
-
                 </nav>
             </div>
         </React.Fragment>
