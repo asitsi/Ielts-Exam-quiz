@@ -1,0 +1,8 @@
+recorded file chaiye,
+recording 1min ki honi chahiye,
+stop recording hata do,
+start button ki jaga voice recorder ka icon bhi add kerdena,
+Icon tume MUi se mil jaega
+link -
+ https://mui.com/material-ui/material-icons/?query=voice
+ bye.. byee

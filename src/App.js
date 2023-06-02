@@ -12,6 +12,7 @@ const Signup = lazy(() => import('./pages/Auth/Signup'));
 const QuestionList = lazy(() => import('./components/questionanswer/QuestionList'));
 const Profile = lazy(() => import('./pages/Profile/Profile'));
 const Dashboard = lazy(() => import('./pages/Quiz/Deshboard'));
+const VoiceRecorder=lazy(()=>import('./components/audioRecorder/RecordingVoice'));
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/voicerecorder' element={<VoiceRecorder/>}/>
           {/* Test */}
           <Route path='/home/:list/quiz' element={<Dashboard />} />
           <Route path='*' element={<Home />} />
